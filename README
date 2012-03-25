@@ -1,0 +1,7 @@
+This is a simple teleportation plugin, it was made for
+my public server as I have a thing for realism and
+/warp just does not do. This allows you to create signs
+to act as destinations and other ones to be used by the
+players, when you right click on a travel sign you are
+teleported to its destination. There are no commands,
+see the examples on the wiki for how to use it.
