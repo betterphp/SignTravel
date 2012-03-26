@@ -42,14 +42,17 @@ public class SignBreakListener implements Listener {
 			}
 		}
 		
-		if (plugin.locations.contains(location)){
+		if (location != null && plugin.locations.contains(location)){
 			if (player.hasPermission("signlink.remove") == false){
+				player.sendMessage(plugin.formatMessage(ChatColor.RED + "You do not have permission to remove this sign"));
 				return false;
 			}else{
 				plugin.locations.remove(location);
+				player.sendMessage(plugin.formatMessage(ChatColor.GREEN + "Location removed"));
 			}
 		}else if (destination != null && plugin.locations.contains(destination)){
 			if (player.hasPermission("signlink.remove") == false){
+				player.sendMessage(plugin.formatMessage(ChatColor.RED + "You do not have permission to remove this sign"));
 				return false;
 			}
 		}
@@ -65,7 +68,6 @@ public class SignBreakListener implements Listener {
 		Material brokenType = broken.getType();
 		
 		if ((brokenType == Material.SIGN_POST || brokenType == Material.WALL_SIGN) && this.checkSignBreak(broken, player) == false){
-			player.sendMessage(plugin.formatMessage(ChatColor.RED + "You do not have permission to remove this sign"));
 			event.setCancelled(true);
 			return;
 		}
@@ -73,7 +75,6 @@ public class SignBreakListener implements Listener {
 		Block above = broken.getRelative(BlockFace.UP);
 		
 		if (above.getType() == Material.SIGN_POST && this.checkSignBreak(above, player) == false){
-			player.sendMessage(plugin.formatMessage(ChatColor.RED + "You do not have permission to remove this sign"));
 			event.setCancelled(true);
 			return;
 		}
@@ -87,13 +88,10 @@ public class SignBreakListener implements Listener {
 		
 		for (Block surroundingBlock : surrounding){
 			if (surroundingBlock.getType() == Material.WALL_SIGN && this.checkSignBreak(surroundingBlock, player) == false){
-				player.sendMessage(plugin.formatMessage(ChatColor.RED + "You do not have permission to remove this sign"));
 				event.setCancelled(true);
 				return;
 			}
 		}
-		
-		player.sendMessage(plugin.formatMessage(ChatColor.GREEN + "Location removed"));
 	}
 	
 }
