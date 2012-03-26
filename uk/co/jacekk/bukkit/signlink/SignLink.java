@@ -31,8 +31,14 @@ public class SignLink extends JavaPlugin {
 		String pluginDir = this.getDataFolder().getAbsolutePath();
 		(new File(pluginDir)).mkdirs();
 		
-		this.locations = new LocationStore(new File(pluginDir + File.separator + "sign-locations.bin"));
+		File locationFile = new File(pluginDir + File.separator + "sign-locations.bin");
+		
+		this.locations = new LocationStore(locationFile);
 		this.locations.load();
+		
+		if (locationFile.canWrite() == false){
+			this.log.fatal("Unable to write to the location storage file.");
+		}
 		
 		this.server = this.getServer();
 		this.pluginManager = this.server.getPluginManager();

@@ -84,10 +84,12 @@ public class LocationStore {
 	
 	public void add(String key, Location location){
 		this.locations.put(key, location);
+		this.save();
 	}
 	
 	public void remove(String key){
 		this.locations.remove(key);
+		this.save();
 	}
 	
 }
