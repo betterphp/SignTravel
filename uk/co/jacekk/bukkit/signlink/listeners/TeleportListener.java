@@ -1,6 +1,7 @@
 package uk.co.jacekk.bukkit.signlink.listeners;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
@@ -46,10 +47,18 @@ public class TeleportListener implements Listener {
 			
 			if (destination != null && player.hasPermission("signlink.use")){
 				if (plugin.locations.contains(destination) == false){
-					player.sendMessage(plugin.formatMessage(ChatColor.GREEN + "The destination " + destination + " could not be found"));
+					player.sendMessage(plugin.formatMessage(ChatColor.RED + "The destination " + destination + " could not be found"));
 				}else{
 					player.sendMessage(plugin.formatMessage(ChatColor.GREEN + "Teleporting to " + destination));
-					player.teleport(plugin.locations.get(destination));
+					
+					Location dest = plugin.locations.get(destination);
+					
+					if (dest.getBlock().getType() != Material.AIR){
+						player.sendMessage(plugin.formatMessage(ChatColor.RED + "The destination " + destination + " does not look safe"));
+					}
+					
+					player.teleport(dest);
+					
 					event.setCancelled(true);
 				}
 			}

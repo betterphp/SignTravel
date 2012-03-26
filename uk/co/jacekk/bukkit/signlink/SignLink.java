@@ -8,6 +8,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import uk.co.jacekk.bukkit.signlink.listeners.BugFixListener;
 import uk.co.jacekk.bukkit.signlink.listeners.SignBreakListener;
 import uk.co.jacekk.bukkit.signlink.listeners.SignCreateListener;
 import uk.co.jacekk.bukkit.signlink.listeners.TeleportListener;
@@ -46,6 +47,7 @@ public class SignLink extends JavaPlugin {
 		this.pluginManager.registerEvents(new TeleportListener(this), this);
 		this.pluginManager.registerEvents(new SignCreateListener(this), this);
 		this.pluginManager.registerEvents(new SignBreakListener(this), this);
+		this.pluginManager.registerEvents(new BugFixListener(), this);
 	}
 	
 	public void onDisable(){
