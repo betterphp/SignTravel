@@ -7,8 +7,8 @@ import org.bukkit.Server;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitScheduler;
 
-import uk.co.jacekk.bukkit.signlink.listeners.BugFixListener;
 import uk.co.jacekk.bukkit.signlink.listeners.SignBreakListener;
 import uk.co.jacekk.bukkit.signlink.listeners.SignCreateListener;
 import uk.co.jacekk.bukkit.signlink.listeners.TeleportListener;
@@ -22,6 +22,7 @@ public class SignLink extends JavaPlugin {
 	
 	protected Server server;
 	protected PluginManager pluginManager;
+	public BukkitScheduler scheduler;
 	
 	public LocationStore locations;
 	
@@ -43,11 +44,11 @@ public class SignLink extends JavaPlugin {
 		
 		this.server = this.getServer();
 		this.pluginManager = this.server.getPluginManager();
+		this.scheduler = this.server.getScheduler();
 		
 		this.pluginManager.registerEvents(new TeleportListener(this), this);
 		this.pluginManager.registerEvents(new SignCreateListener(this), this);
 		this.pluginManager.registerEvents(new SignBreakListener(this), this);
-		this.pluginManager.registerEvents(new BugFixListener(), this);
 	}
 	
 	public void onDisable(){

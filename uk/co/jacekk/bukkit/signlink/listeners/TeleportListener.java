@@ -1,9 +1,13 @@
 package uk.co.jacekk.bukkit.signlink.listeners;
 
+import java.util.Arrays;
+
 import org.bukkit.ChatColor;
+import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,6 +15,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerTeleportEvent;
 
 import uk.co.jacekk.bukkit.signlink.SignLink;
 
@@ -20,6 +25,38 @@ public class TeleportListener implements Listener {
 	
 	public TeleportListener(SignLink plugin){
 		this.plugin = plugin;
+	}
+	
+	private boolean safeBlock(Block block){
+		return Arrays.asList(Material.AIR, Material.WATER, Material.STATIONARY_WATER).contains(block.getType());
+	}
+	
+	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+	public void onPlayerTeleport(PlayerTeleportEvent event){
+		Location to = event.getTo();
+		
+		int yMax = to.getWorld().getMaxHeight();
+		
+		Chunk chunk = to.getChunk();
+		Block block = to.getBlock();
+		Block above = block.getRelative(BlockFace.UP); 
+		
+		if (chunk.isLoaded() == false){
+			chunk.load();
+		}
+		
+		while (this.safeBlock(block) == false || this.safeBlock(above) == false){
+			to.add(0D, 1D, 0D);
+			
+			block = above;
+			above = above.getRelative(BlockFace.UP);
+			
+			if (above.getY() >= yMax){
+				break;
+			}
+		}
+		
+		event.setTo(to);
 	}
 	
 	@EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
@@ -52,10 +89,6 @@ public class TeleportListener implements Listener {
 					player.sendMessage(plugin.formatMessage(ChatColor.GREEN + "Teleporting to " + destination));
 					
 					Location dest = plugin.locations.get(destination);
-					
-					if (dest.getBlock().getType() != Material.AIR){
-						player.sendMessage(plugin.formatMessage(ChatColor.RED + "The destination " + destination + " does not look safe"));
-					}
 					
 					player.teleport(dest);
 					
