@@ -51,7 +51,7 @@ public class TeleportListener implements Listener {
 	
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onPlayerTeleport(PlayerTeleportEvent event){
-		Location to = event.getTo();
+		Location to = event.getTo().clone();
 		
 		int yMax = to.getWorld().getMaxHeight();
 		
