@@ -1,6 +1,7 @@
 package uk.co.jacekk.bukkit.signlink.listeners;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
@@ -23,12 +24,29 @@ public class TeleportListener implements Listener {
 	
 	private SignLink plugin;
 	
+	private List<Material> safeBlocks;
+	
 	public TeleportListener(SignLink plugin){
 		this.plugin = plugin;
+		
+		this.safeBlocks = Arrays.asList(
+			Material.AIR,
+			Material.WATER,
+			Material.STATIONARY_WATER,
+			Material.PORTAL,
+			Material.RAILS,
+			Material.DETECTOR_RAIL,
+			Material.POWERED_RAIL,
+			Material.VINE,
+			Material.LADDER,
+			Material.TORCH,
+			Material.SIGN_POST,
+			Material.WALL_SIGN
+		);
 	}
 	
 	private boolean safeBlock(Block block){
-		return Arrays.asList(Material.AIR, Material.WATER, Material.STATIONARY_WATER).contains(block.getType());
+		return this.safeBlocks.contains(block.getType());
 	}
 	
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
