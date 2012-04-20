@@ -42,7 +42,11 @@ public class TeleportListener implements Listener {
 			Material.TORCH,
 			Material.SIGN_POST,
 			Material.WALL_SIGN,
-			Material.SNOW
+			Material.SNOW,
+			Material.WOODEN_DOOR,
+			Material.IRON_DOOR_BLOCK,
+			Material.WOOD_PLATE,
+			Material.STONE_PLATE
 		);
 	}
 	
