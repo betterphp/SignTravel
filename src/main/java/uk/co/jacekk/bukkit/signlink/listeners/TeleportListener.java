@@ -92,14 +92,11 @@ public class TeleportListener extends BaseListener<SignLink> {
 			
 			String[] lines = sign.getLines();
 			
-			String line;
 			String destination = null;
 			
 			for (int i = 3; i >= 0; --i){
-				line = lines[i]; 
-				
-				if (line.startsWith("[") && line.endsWith("]")){
-					destination = line.substring(1, line.length() - 1);
+				if (lines[i].startsWith("[") && lines[i].endsWith("]")){
+					destination = lines[i].substring(1, lines[i].length() - 1);
 					break;
 				}
 			}
