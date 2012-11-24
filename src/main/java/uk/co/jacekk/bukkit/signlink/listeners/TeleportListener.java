@@ -19,6 +19,7 @@ import org.bukkit.event.player.PlayerTeleportEvent;
 
 import uk.co.jacekk.bukkit.baseplugin.v5.event.BaseListener;
 import uk.co.jacekk.bukkit.signlink.SignLink;
+import uk.co.jacekk.bukkit.signlink.event.SignLinkTeleportEvent;
 
 public class TeleportListener extends BaseListener<SignLink> {
 	
@@ -107,11 +108,15 @@ public class TeleportListener extends BaseListener<SignLink> {
 				if (plugin.locations.contains(destination) == false){
 					player.sendMessage(plugin.formatMessage(ChatColor.RED + "The destination " + destination + " could not be found"));
 				}else{
-					player.sendMessage(plugin.formatMessage(ChatColor.GREEN + "Teleporting to " + destination));
-					
 					Location dest = plugin.locations.get(destination);
 					
-					player.teleport(dest);
+					SignLinkTeleportEvent signTeleportEvent = new SignLinkTeleportEvent(player, dest, destination);
+					plugin.pluginManager.callEvent(signTeleportEvent);
+					
+					if (!signTeleportEvent.isCancelled()){
+						player.sendMessage(plugin.formatMessage(ChatColor.GREEN + "Teleporting to " + destination));
+						player.teleport(dest);
+					}
 					
 					event.setCancelled(true);
 				}
