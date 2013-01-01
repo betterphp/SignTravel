@@ -103,7 +103,7 @@ public class TeleportListener extends BaseListener<SignLink> {
 			}
 			
 			if (destination != null && Permission.SIGN_USE.has(player)){
-				if (plugin.locations.contains(destination) == false){
+				if (!plugin.locations.contains(destination)){
 					player.sendMessage(plugin.formatMessage(ChatColor.RED + "The destination " + destination + " could not be found"));
 				}else{
 					Location dest = plugin.locations.get(destination);

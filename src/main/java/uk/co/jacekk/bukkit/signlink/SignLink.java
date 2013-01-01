@@ -3,6 +3,7 @@ package uk.co.jacekk.bukkit.signlink;
 import java.io.File;
 
 import uk.co.jacekk.bukkit.baseplugin.v7.BasePlugin;
+import uk.co.jacekk.bukkit.signlink.command.WarpCommandExecutor;
 import uk.co.jacekk.bukkit.signlink.listeners.SignBreakListener;
 import uk.co.jacekk.bukkit.signlink.listeners.SignCreateListener;
 import uk.co.jacekk.bukkit.signlink.listeners.TeleportListener;
@@ -29,6 +30,7 @@ public class SignLink extends BasePlugin {
 		this.pluginManager.registerEvents(new SignBreakListener(this), this);
 		
 		this.permissionManager.registerPermissions(Permission.class);
+		this.commandManager.registerCommandExecutor(new WarpCommandExecutor(this));
 	}
 	
 	public void onDisable(){

@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.bukkit.Location;
 
@@ -90,6 +91,10 @@ public class LocationStore {
 	public void remove(String key){
 		this.locations.remove(key);
 		this.save();
+	}
+	
+	public Set<String> getKeys(){
+		return this.locations.keySet();
 	}
 	
 }
