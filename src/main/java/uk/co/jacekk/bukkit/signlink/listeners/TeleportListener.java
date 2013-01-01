@@ -18,6 +18,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
 import uk.co.jacekk.bukkit.baseplugin.v7.event.BaseListener;
+import uk.co.jacekk.bukkit.signlink.Permission;
 import uk.co.jacekk.bukkit.signlink.SignLink;
 import uk.co.jacekk.bukkit.signlink.event.SignLinkTeleportEvent;
 
@@ -101,7 +102,7 @@ public class TeleportListener extends BaseListener<SignLink> {
 				}
 			}
 			
-			if (destination != null && player.hasPermission("signlink.use")){
+			if (destination != null && Permission.SIGN_USE.has(player)){
 				if (plugin.locations.contains(destination) == false){
 					player.sendMessage(plugin.formatMessage(ChatColor.RED + "The destination " + destination + " could not be found"));
 				}else{

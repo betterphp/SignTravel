@@ -27,6 +27,8 @@ public class SignLink extends BasePlugin {
 		this.pluginManager.registerEvents(new TeleportListener(this), this);
 		this.pluginManager.registerEvents(new SignCreateListener(this), this);
 		this.pluginManager.registerEvents(new SignBreakListener(this), this);
+		
+		this.permissionManager.registerPermissions(Permission.class);
 	}
 	
 	public void onDisable(){

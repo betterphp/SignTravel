@@ -2,13 +2,3 @@ name: "${project.name}"
 version: "${project.version}"
 main: "${project.groupId}.${project.artifactId}.${project.name}"
 website: "${project.url}"
-permissions:
-    signlink.create:
-        description: Allows the player to create SignLink signs.
-        default: op
-    signlink.remove:
-        description: Allows the player to remove SignLink signs.
-        default: op
-    signlink.use:
-        description: Allows the player to use SignLink signs.
-        default: true

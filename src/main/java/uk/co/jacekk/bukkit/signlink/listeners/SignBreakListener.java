@@ -11,6 +11,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.BlockBreakEvent;
 
 import uk.co.jacekk.bukkit.baseplugin.v7.event.BaseListener;
+import uk.co.jacekk.bukkit.signlink.Permission;
 import uk.co.jacekk.bukkit.signlink.SignLink;
 
 public class SignBreakListener extends BaseListener<SignLink> {
@@ -41,7 +42,7 @@ public class SignBreakListener extends BaseListener<SignLink> {
 		}
 		
 		if (location != null && plugin.locations.contains(location)){
-			if (player.hasPermission("signlink.remove") == false){
+			if (!Permission.SIGN_REMOVE.has(player)){
 				player.sendMessage(plugin.formatMessage(ChatColor.RED + "You do not have permission to remove this sign"));
 				return false;
 			}
@@ -49,7 +50,7 @@ public class SignBreakListener extends BaseListener<SignLink> {
 			plugin.locations.remove(location);
 			player.sendMessage(plugin.formatMessage(ChatColor.GREEN + "Location removed"));
 		}else if (destination != null && plugin.locations.contains(destination)){
-			if (player.hasPermission("signlink.remove") == false){
+			if (!Permission.SIGN_REMOVE.has(player)){
 				player.sendMessage(plugin.formatMessage(ChatColor.RED + "You do not have permission to remove this sign"));
 				return false;
 			}
@@ -65,14 +66,14 @@ public class SignBreakListener extends BaseListener<SignLink> {
 		
 		Material brokenType = broken.getType();
 		
-		if ((brokenType == Material.SIGN_POST || brokenType == Material.WALL_SIGN) && this.checkSignBreak(broken, player) == false){
+		if ((brokenType == Material.SIGN_POST || brokenType == Material.WALL_SIGN) && !this.checkSignBreak(broken, player)){
 			event.setCancelled(true);
 			return;
 		}
 		
 		Block above = broken.getRelative(BlockFace.UP);
 		
-		if (above.getType() == Material.SIGN_POST && this.checkSignBreak(above, player) == false){
+		if (above.getType() == Material.SIGN_POST && !this.checkSignBreak(above, player)){
 			event.setCancelled(true);
 			return;
 		}
@@ -85,7 +86,7 @@ public class SignBreakListener extends BaseListener<SignLink> {
 		surrounding[3] = broken.getRelative(BlockFace.WEST);
 		
 		for (Block surroundingBlock : surrounding){
-			if (surroundingBlock.getType() == Material.WALL_SIGN && this.checkSignBreak(surroundingBlock, player) == false){
+			if (surroundingBlock.getType() == Material.WALL_SIGN && !this.checkSignBreak(surroundingBlock, player)){
 				event.setCancelled(true);
 				return;
 			}

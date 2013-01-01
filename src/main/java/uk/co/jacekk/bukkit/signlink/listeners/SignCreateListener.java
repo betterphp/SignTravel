@@ -7,6 +7,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.SignChangeEvent;
 
 import uk.co.jacekk.bukkit.baseplugin.v7.event.BaseListener;
+import uk.co.jacekk.bukkit.signlink.Permission;
 import uk.co.jacekk.bukkit.signlink.SignLink;
 
 public class SignCreateListener extends BaseListener<SignLink> {
@@ -40,7 +41,7 @@ public class SignCreateListener extends BaseListener<SignLink> {
 		}
 		
 		if (location != null){
-			if (player.hasPermission("signlink.create") == false){
+			if (!Permission.SIGN_CREATE.has(player)){
 				player.sendMessage(plugin.formatMessage(ChatColor.RED + "You do not have permission to create signs."));
 				event.setCancelled(true);
 				return;
@@ -54,7 +55,7 @@ public class SignCreateListener extends BaseListener<SignLink> {
 			}
 		}
 		
-		if (destination != null && plugin.locations.contains(destination) && player.hasPermission("signlink.create") == false){
+		if (destination != null && plugin.locations.contains(destination) && !Permission.SIGN_CREATE.has(player)){
 			player.sendMessage(plugin.formatMessage(ChatColor.RED + "You do not have permission to create signs."));
 			event.setCancelled(true);
 			return;
