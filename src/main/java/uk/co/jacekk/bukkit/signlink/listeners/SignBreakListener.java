@@ -10,7 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.BlockBreakEvent;
 
-import uk.co.jacekk.bukkit.baseplugin.v6.event.BaseListener;
+import uk.co.jacekk.bukkit.baseplugin.v7.event.BaseListener;
 import uk.co.jacekk.bukkit.signlink.SignLink;
 
 public class SignBreakListener extends BaseListener<SignLink> {

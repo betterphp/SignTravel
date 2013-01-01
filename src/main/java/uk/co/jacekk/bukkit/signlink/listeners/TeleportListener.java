@@ -17,7 +17,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
-import uk.co.jacekk.bukkit.baseplugin.v6.event.BaseListener;
+import uk.co.jacekk.bukkit.baseplugin.v7.event.BaseListener;
 import uk.co.jacekk.bukkit.signlink.SignLink;
 import uk.co.jacekk.bukkit.signlink.event.SignLinkTeleportEvent;
 
