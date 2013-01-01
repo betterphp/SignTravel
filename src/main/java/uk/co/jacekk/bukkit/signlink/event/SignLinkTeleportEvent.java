@@ -63,6 +63,7 @@ public class SignLinkTeleportEvent extends Event implements Cancellable {
 		return this.destinationName;
 	}
 	
+	@Override
 	public HandlerList getHandlers(){
 		return handlers;
 	}
@@ -71,10 +72,12 @@ public class SignLinkTeleportEvent extends Event implements Cancellable {
 		return handlers;
 	}
 	
+	@Override
 	public boolean isCancelled(){
 		return this.isCancelled;
 	}
 	
+	@Override
 	public void setCancelled(boolean cancelled){
 		this.isCancelled = cancelled;
 	}

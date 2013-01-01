@@ -20,7 +20,7 @@ public class SignLink extends BasePlugin {
 		this.locations = new LocationStore(locationFile);
 		this.locations.load();
 		
-		if (locationFile.canWrite() == false){
+		if (!locationFile.canWrite()){
 			this.log.fatal("Unable to write to the location storage file.");
 		}
 		
