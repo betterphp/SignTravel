@@ -1,4 +1,4 @@
-package uk.co.jacekk.bukkit.signlink.listeners;
+package uk.co.jacekk.bukkit.signtravel.listeners;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -7,12 +7,12 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.SignChangeEvent;
 
 import uk.co.jacekk.bukkit.baseplugin.v8.event.BaseListener;
-import uk.co.jacekk.bukkit.signlink.Permission;
-import uk.co.jacekk.bukkit.signlink.SignLink;
+import uk.co.jacekk.bukkit.signtravel.Permission;
+import uk.co.jacekk.bukkit.signtravel.SignTravel;
 
-public class SignCreateListener extends BaseListener<SignLink> {
+public class SignCreateListener extends BaseListener<SignTravel> {
 	
-	public SignCreateListener(SignLink plugin){
+	public SignCreateListener(SignTravel plugin){
 		super(plugin);
 	}
 	

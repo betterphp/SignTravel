@@ -1,4 +1,4 @@
-package uk.co.jacekk.bukkit.signlink;
+package uk.co.jacekk.bukkit.signtravel;
 
 import org.bukkit.permissions.PermissionDefault;
 

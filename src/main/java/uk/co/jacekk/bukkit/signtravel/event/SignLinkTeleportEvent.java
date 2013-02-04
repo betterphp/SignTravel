@@ -1,4 +1,4 @@
-package uk.co.jacekk.bukkit.signlink.event;
+package uk.co.jacekk.bukkit.signtravel.event;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

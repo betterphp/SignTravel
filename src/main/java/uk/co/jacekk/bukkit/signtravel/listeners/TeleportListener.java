@@ -1,4 +1,4 @@
-package uk.co.jacekk.bukkit.signlink.listeners;
+package uk.co.jacekk.bukkit.signtravel.listeners;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,15 +18,15 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
 import uk.co.jacekk.bukkit.baseplugin.v8.event.BaseListener;
-import uk.co.jacekk.bukkit.signlink.Permission;
-import uk.co.jacekk.bukkit.signlink.SignLink;
-import uk.co.jacekk.bukkit.signlink.event.SignLinkTeleportEvent;
+import uk.co.jacekk.bukkit.signtravel.Permission;
+import uk.co.jacekk.bukkit.signtravel.SignTravel;
+import uk.co.jacekk.bukkit.signtravel.event.SignLinkTeleportEvent;
 
-public class TeleportListener extends BaseListener<SignLink> {
+public class TeleportListener extends BaseListener<SignTravel> {
 	
 	private List<Material> safeBlocks;
 	
-	public TeleportListener(SignLink plugin){
+	public TeleportListener(SignTravel plugin){
 		super(plugin);
 		
 		this.safeBlocks = Arrays.asList(

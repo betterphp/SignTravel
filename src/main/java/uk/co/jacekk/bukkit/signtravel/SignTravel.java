@@ -1,15 +1,15 @@
-package uk.co.jacekk.bukkit.signlink;
+package uk.co.jacekk.bukkit.signtravel;
 
 import java.io.File;
 
 import uk.co.jacekk.bukkit.baseplugin.v8.BasePlugin;
-import uk.co.jacekk.bukkit.signlink.command.WarpCommandExecutor;
-import uk.co.jacekk.bukkit.signlink.listeners.SignBreakListener;
-import uk.co.jacekk.bukkit.signlink.listeners.SignCreateListener;
-import uk.co.jacekk.bukkit.signlink.listeners.TeleportListener;
+import uk.co.jacekk.bukkit.signtravel.command.WarpCommandExecutor;
+import uk.co.jacekk.bukkit.signtravel.listeners.SignBreakListener;
+import uk.co.jacekk.bukkit.signtravel.listeners.SignCreateListener;
+import uk.co.jacekk.bukkit.signtravel.listeners.TeleportListener;
 import uk.co.jacekk.bukkit.util.LocationStore;
 
-public class SignLink extends BasePlugin {
+public class SignTravel extends BasePlugin {
 	
 	public LocationStore locations;
 	

@@ -1,4 +1,4 @@
-package uk.co.jacekk.bukkit.signlink.command;
+package uk.co.jacekk.bukkit.signtravel.command;
 
 import java.util.Arrays;
 import java.util.Set;
@@ -11,13 +11,13 @@ import org.bukkit.entity.Player;
 import uk.co.jacekk.bukkit.baseplugin.v8.command.BaseCommandExecutor;
 import uk.co.jacekk.bukkit.baseplugin.v8.command.CommandHandler;
 import uk.co.jacekk.bukkit.baseplugin.v8.util.ListUtils;
-import uk.co.jacekk.bukkit.signlink.Permission;
-import uk.co.jacekk.bukkit.signlink.SignLink;
-import uk.co.jacekk.bukkit.signlink.event.SignLinkTeleportEvent;
+import uk.co.jacekk.bukkit.signtravel.Permission;
+import uk.co.jacekk.bukkit.signtravel.SignTravel;
+import uk.co.jacekk.bukkit.signtravel.event.SignLinkTeleportEvent;
 
-public class WarpCommandExecutor extends BaseCommandExecutor<SignLink> {
+public class WarpCommandExecutor extends BaseCommandExecutor<SignTravel> {
 	
-	public WarpCommandExecutor(SignLink plugin){
+	public WarpCommandExecutor(SignTravel plugin){
 		super(plugin);
 	}
 	
