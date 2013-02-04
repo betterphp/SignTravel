@@ -2,7 +2,7 @@ package uk.co.jacekk.bukkit.signlink;
 
 import java.io.File;
 
-import uk.co.jacekk.bukkit.baseplugin.v7.BasePlugin;
+import uk.co.jacekk.bukkit.baseplugin.v8.BasePlugin;
 import uk.co.jacekk.bukkit.signlink.command.WarpCommandExecutor;
 import uk.co.jacekk.bukkit.signlink.listeners.SignBreakListener;
 import uk.co.jacekk.bukkit.signlink.listeners.SignCreateListener;
