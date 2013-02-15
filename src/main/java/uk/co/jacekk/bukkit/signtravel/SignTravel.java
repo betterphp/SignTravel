@@ -2,7 +2,7 @@ package uk.co.jacekk.bukkit.signtravel;
 
 import java.io.File;
 
-import uk.co.jacekk.bukkit.baseplugin.v9.BasePlugin;
+import uk.co.jacekk.bukkit.baseplugin.v9_1.BasePlugin;
 import uk.co.jacekk.bukkit.signtravel.command.WarpCommandExecutor;
 import uk.co.jacekk.bukkit.signtravel.listeners.SignBreakListener;
 import uk.co.jacekk.bukkit.signtravel.listeners.SignCreateListener;
