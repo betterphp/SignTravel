@@ -2,14 +2,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>uk.co.jacekk.bukkit</groupId>
 	<artifactId>signtravel</artifactId>
+	<name>SignTravel</name>
 	<version>0.2</version>
 	<packaging>jar</packaging>
-	
-	<name>SignTravel</name>
 	<url>http://dev.bukkit.org/server-mods/signtravel/</url>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<upload.dbo.category>server-mods</upload.dbo.category>
+		<upload.dbo.slug>signtravel</upload.dbo.slug>
 	</properties>
 	
 	<repositories>
