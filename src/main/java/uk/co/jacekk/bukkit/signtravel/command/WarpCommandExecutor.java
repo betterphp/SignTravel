@@ -8,9 +8,9 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import uk.co.jacekk.bukkit.baseplugin.v9_1.command.BaseCommandExecutor;
-import uk.co.jacekk.bukkit.baseplugin.v9_1.command.CommandHandler;
-import uk.co.jacekk.bukkit.baseplugin.v9_1.util.ListUtils;
+import uk.co.jacekk.bukkit.baseplugin.command.BaseCommandExecutor;
+import uk.co.jacekk.bukkit.baseplugin.command.CommandHandler;
+import uk.co.jacekk.bukkit.baseplugin.util.ListUtils;
 import uk.co.jacekk.bukkit.signtravel.Permission;
 import uk.co.jacekk.bukkit.signtravel.SignTravel;
 import uk.co.jacekk.bukkit.signtravel.event.SignLinkTeleportEvent;
