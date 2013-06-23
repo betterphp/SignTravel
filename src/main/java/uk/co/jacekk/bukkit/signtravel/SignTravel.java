@@ -17,8 +17,6 @@ public class SignTravel extends BasePlugin {
 	public void onEnable(){
 		super.onEnable(true);
 		
-		this.config = new PluginConfig(new File(this.getBaseDirPath() + File.separator + "config.yml"), Config.class, this.log);
-		
 		File locationFile = new File(this.baseDirPath + File.separator + "sign-locations.bin");
 		
 		this.locations = new LocationStore(locationFile);
@@ -34,10 +32,6 @@ public class SignTravel extends BasePlugin {
 		
 		this.permissionManager.registerPermissions(Permission.class);
 		this.commandManager.registerCommandExecutor(new WarpCommandExecutor(this));
-		
-		if (this.config.getBoolean(Config.ENABLE_PROFILER)){
-			this.enableProfiling();
-		}
 	}
 	
 	public void onDisable(){
